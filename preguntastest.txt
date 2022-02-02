@@ -1,0 +1,214 @@
+   VERDADERO O FALSO , PARTE FICHEROS.
+   
+A. Mientras un fichero está abierto, el S.O. mantiene una copia de su inodo en memoria principal. C
+B. El contenido de un directorio (entradas de directorio) se almacena en el área de datos. C
+C. El código lincado con una librería dinámica es “autocontenido”. F
+D. El código binario de fork() se encuentra en la librería estándar de C (libC). F
+E. Es posible crear hard links entre diferentes sistemas de ficheros montados. F
+F. El tipo de fichero “link simbólico” se codifica en el campo “modo” del inodo (el mismo campo en el que
+se codifican también los permisos del fichero). C
+G. La idea fundamental de un sistema de ficheros Unix basado en registro (journaling file system) es llevar
+control de todos los ficheros que se crean y eliminan. F
+H. El Buffer Cache minimiza posibles errores, ante caídas de alimentación, cuando se realizan
+operaciones de cambio de datos/metadatos en el sistema de ficheros. F
+E. fgetc es una llamada al sistema operativo. Cierto/Falso: F
+F. link es una llamada al sistema operativo. Cierto/Falso: C
+El lincador encuentra el código de printf en la librería estándar de C (versión estática o dinámica
+de la librería). Cierto/Falso: C
+
+
+    PARTE MEMORIA
+
+-Un sistema puede tener direcciones virtuales de 32 bits y direcciones físicas de 40 bits.
+Respuesta: ____V____
+-Un sistema puede tener direcciones virtuales de 40 bits y direcciones físicas de 32 bits.
+Respuesta: ____V____
+-Un sistema puede tener 12 bits para el offset en una página virtual y 14 bits para el offset en una
+página física
+Respuesta: _____F___
+-Un sistema puede tener 14 bits para el offset en una página virtual y 12 bits para el offset en una
+página física
+Respuesta: _____F___
+-En clase se estudió una aproximación al modelo de gestión de memoria del Working Set (WS) que
+se implementa con un timer, bit de referencia de las páginas y copia en memoria de los bits de
+referencia. El modelo teórico puro de WS no se implementa porque se necesitaría computar el WS
+en cada referencia a memoria.
+Respuesta: _____V___
+-Un problema con los sistemas que trabajaban con código absoluto es que la resolución de la
+referencias a memoria en el código era muy lenta
+Respuesta: _____F___
+-Los sistemas de memoria basados en un registro base y un registro límite pueden tener swapping
+(intercambio) de procesos
+Respuesta: ____V____
+-En un sistema de gestión de memoria con tabla de páginas invertidas tiene que haber tantas tablas
+de páginas invertidas como procesos en la memoria física
+Respuesta: ____F____
+-En un sistema de gestión de memoria con segmentación paginada y con TLB, la TLP mapea
+páginas lógicas en páginas físicas
+Respuesta: ___V_____
+-Un sistema de segmentación puede tener fragmentación externa por tanto uno de segmentación
+paginada también
+Respuesta: ____F___
+-En la pila del proceso están las variables locales y parámetros de funciones: ____V_____
+-Las variables locales del main no están en la pila del proceso: ___F_____
+-Las variables automáticas definidas en funciones están en la pila del proceso: __V__
+-Las variables automáticas definidas en main() no están en la pila del proceso:___F___
+-El código y los datos de la librería malloc usada en un programa C están en el espacio de
+direcciones del kernel:__F___
+-Las variables estáticas definidas en funciones están en la pila del proceso: ___F___
+-Las variables estáticas definidas en main() no están en la pila del proceso: ___V___
+-Para un proceso con varios hilos de ejecución, cada hilo tiene su propio espacio de direcciones
+(código, datos, stack): ___F____
+-Para un sistema con una tabla de páginas en un nivel (y no caché, no TLB), traer y ejecutar una
+instrucción que añade un valor constante a un registro, implica exactamente dos accesos a memoria:
+___V___
+-Para un sistema con una tabla de páginas de dos niveles (y no caché, no TLB), traer y ejecutar una
+instrucción que añade un valor constante a un registro, implica exactamente dos accesos a memoria:
+___F___
+-Para un sistema con tablas de páginas en dos niveles donde la página raíz no está fija en memoria y
+procesador con caché y TLB, traer y ejecutar una instrucción que añade un valor constante a un
+registro, puede implicar ningún acceso a memoria: ___V___
+-Dado un número de bits para las direcciones virtuales, y una tabla de páginas de un nivel, el
+tamaño de la tabla de páginas se reduce con páginas más grandes: ____V____
+-Si las direcciones físicas son de 32 bits y las páginas de 4Kbytes, el número de página física viene
+dado por 18 bits:____F_____
+-Una tabla de páginas multinivel típicamente reduce la cantidad de memoria necesaria para
+almacenar tablas de páginas comparada con una tabla de páginas de un nivel:____V____
+-Si el bit de validez está a cero en una Entrada de Tabla de Página necesaria para un acceso a
+memoria, la página deseada deberá ser traída a memoria desde el dispositivo de
+almacenamiento:___F___
+-Con Tablas de Páginas Invertida, las páginas virtuales pueden ser más grandes que las páginas
+físicas:____F____
+-Las TLBs son más beneficiosas con tablas de páginas multinivel que con tablas de páginas de un
+nivel:____V____
+-Cuando el dirty bit está a cero en una Entrada de Tabla de Página necesaria para un acceso a
+memoria, existe una copia exacta de la página deseada en el dispositivo de
+almacenamiento:____V____
+-El algoritmo de reemplazo LRU con N+1 páginas de memoria siempre se comporta mejor que
+LRU con N páginas de memoria:____F_____
+-El algoritmo de reemplazo FIFO con N+1 páginas de memoria siempre se comporta mejor que
+FIFO con N páginas de memoria:_____F____
+
+
+    PARTE PROCESOS
+    
+-La credencial real y la credencial efectiva de un proceso son siempre iguales entre
+si/Real credential always matches the efective credential/A credencial real e a credencial
+efectiva dun proceso sempre son iguais entre si___F
+-Las variables de entorno son iguales para todos los procesos del sistema/Environment variables are
+the same for all processes in the system/As variables de entorno son iguais para todos os procesos
+do sistema___F
+-Las variables de entorno son iguales para todos los procesos del mismo usuario/Environment
+variables are the same for all processes of the same user/As variables de entorno son iguais para
+todos os procesos do mesmo usuario___F
+-Cada proceso tiene su copia de los datos del kernel/Each process has its copy of the kernel
+data/Cada proceso ten a súa copia dos datos do núcleo___F
+-La pila del kernel debe estar protegida de accessos concurrentes/The kernel stack must be protected
+from concurrent accesses/A pila do núcleo debe estar protexida de accesos simultáneos___ F
+-La transición de ejecución a espera es SIEMPRE desde ejecución en modo kernel/The transition
+from running to blocked is ALWAYS from kernel running/A transición de executar a esperar
+SEMPRE é dende executar en modo núcleo___V
+-El estado de apropiado (preempted) es el mismo que el de listo para ejecución/The preempted state
+is the same as runnable (ready to run) state/O estado apropiado (preempted) é o mesmo que listo
+para executar___V
+-Cuando un programa comienza su ejecución las variables de entorno están en la pila de usuario/
+When a program starts execution, environment variables are stored in the user stack/Cando un
+programa comeza a súa execución, as variables de entorno están na pila de usuario___V
+-La llamada execvp() crea un proceso que ejecuta un prgrama que está en el PATH/The execvp()
+system call creates a process that executes a program which is in the PATH___
+-A chamada execvp() crea un proceso que executa un programa que está no PATH___F
+-Suponiendo que se llama desde el proceso padre del proceso pi2, waitpid(pi2,NULL,0) desasigna
+la estructura proc del proceso pi2 cuando termina/Assuming the calling process is pi2’s parent
+process, waitpid(pi2,NULL,0) deallocates pi2’s proc struct/Supoñendo que se chama desde o
+proceso pai do proceso pi2 ,waitpid (pi2, NULL, 0) deslocala a estrutura proc do proceso pi2 cando
+remata___V
+
+  PARTE E/S
+  
+A- El registro de control de un controlador de dispositivo permite saber si el dispositivo está disponible para
+recibir/transmitir un nuevo dato. __F__
+O rexistro de control dun controlador de dispositivo permite saber se o dispositivo está dispoñible para recibir/transmitir un novo dato.
+In a device controller, the control register permits us to know if the device is ready to receive/transmit a new piece of data.
+B- Considérese la estructura en capas del software de E/S. Asumamos un disco duro con un sistema de
+ficheros que usa bloques de 1Kbyte. Cuando carguemos un fichero de 2500 bytes en un editor de textos, la
+capa denominada software independiente del dispositivo se encarga de calcular cuántos sectores de disco
+deben ser leídos: _F___
+Considérese a estructura en capas do software de E/S. Asumamos un disco duro cun sistema de ficheiros que usa bloques de 1Kby te.
+Cando carguemos un ficheiro de 2500 bytes nun editor de textos, a capa denominada software independente de dispositivo encárgase de
+calcular cantos sectores de disco deben ser lidos.
+Let us consider the layered structure of the I/O software. Lets assume a hard drive containing a file system that uses 1Kbyte blocks. When
+we load a file of size 2500 bytes into a text editor, the layer named device-independent software is in charge of computing the number of
+sectors that must be read from disk.
+C- Un disco duro con 4 caras y 16000 pistas por cara, tiene 64000 cilindros: _F___
+Un disco duro con 4 caras e 16000 pistas por cara, ten 64000 cilindros.
+A hard disk with 4 sides and 16000 tracks in each side contains 64000 cylinders.
+D- Considerando la siguiente salida del ls: El major-number del dispositivo /dev/sdb es 8: _V___
+Considerando a seguinte saída do ls: O major-number do dispositivo /dev/sdb é 8.
+Considering the following output of the ls command: The major number of the device /dev/sdb is 8.
+user@beowulf:~$ ls -l /dev/sd*
+brw-rw---- 1 root disk 8, 0 nov 25 12:20 /dev/sda
+brw-rw---- 1 root disk 8, 1 nov 25 12:20 /dev/sda1
+brw-rw---- 1 root disk 8, 2 dic 31 01:25 /dev/sda2
+brw-rw---- 1 root disk 8, 16 nov 25 12:20 /dev/sdb
+brw-rw---- 1 root disk 8, 17 nov 25 12:20 /dev/sdb1
+E- Un controlador DMA configurado en modo ráfaga tiene mayor prioridad de acceso al bus que otro
+configurado en modo robo de ciclos: _V___
+A- El registro de datos de un controlador de dispositivo permite saber si el dispositivo está disponible para
+recibir/transmitir un nuevo dato: __F___
+O rexistro de datos dun controlador de dispositivo permite saber se o dispositivo está dispoñible para recibir/transmitir un novo dato.
+In a device controller, the data register permits us to know if the device is ready to receive/transmit a new piece of data.
+B- Considérese la estructura en capas del software de E/S. La capa denominada software independiente de
+dispositivo es la encargada de chequear si un proceso tiene permisos para abrir un fichero: _V___
+Considérese a estructura en capas do software de E/S. A capa denominada software independente do dispositivo é a encargada de
+chequear se un proceso ten permiso para abrir un ficheiro.
+Let us consider the layered structure of the I/O software. The layer named device independent software is in charge of checking if a
+process has enough permissions to open a file.
+C- Un disco duro con 4 caras y 16000 cilindros, tiene 64000 pistas: _V___
+Un disco duro con 4 caras e 16000 cilindros, ten 64000 pistas.
+A hard disk with 4 sides and 16000 cylinders contains 64000 tracks.
+D- Considerando la siguiente salida del ls: El major-number del dispositivo /dev/sda es 0: _F___
+Considerando a seguinte saída do ls: O major-number do dispositivo /dev/sda é 0.
+Considering the following output of the ls command: The major number of the device /dev/sda is 0.
+user@beowulf:~$ ls -l /dev/sd*
+brw-rw---- 1 root disk 8, 0 nov 25 12:20 /dev/sda
+brw-rw---- 1 root disk 8, 1 nov 25 12:20 /dev/sda1
+brw-rw---- 1 root disk 8, 2 dic 31 01:25 /dev/sda2
+brw-rw---- 1 root disk 8, 16 nov 25 12:20 /dev/sdb
+brw-rw---- 1 root disk 8, 17 nov 25 12:20 /dev/sdb1
+E- Un controlador DMA configurado en modo bus transparente tiene mayor prioridad de acceso al bus que
+otro configurado en modo robo de ciclos: _F__
+A- En una operación de salida de datos, el registro de datos de un controlador de dispositivo permite saber
+si el dato a enviar ya ha sido transferido al dispositivo: __F___
+Nunha operación de saída de datos, o rexistro de datos dun controlador de dispositivo permite saber se o dato a enviar xa foitransferido
+ao dispositivo.
+During a data-output transference, the data register of a device controller permits us to know if the piece of data to be sent/written has
+already been transferred to the device.
+B- Considérese la estructura en capas del software de E/S. El device driver es el encargado de chequear si
+un proceso tiene permisos para abrir un fichero: _F___
+Considérese a estructura en capas do software de E/S. O device driver é o encargado de chequear se un proceso ten permisos para
+abrir un ficheiro.
+Let us consider the layered structure of the I/O software. The device driver is in charge of checking if a process has enough permissions
+to open a file.
+C- Un disco duro con 2 caras y 16000 pistas por cara, tiene 16000 cilindros: _V___
+Un disco duro con 2 caras e 16000 pistas por cara, ten 16000 cilindros.
+A hard disk with 2 sides and 16000 tracks in each side contains 16000 cylinders.
+D- Considerando la siguiente salida del ls: El minor-number del dispositivo /dev/sda es 0: _V___
+Considerando a seguinte saída do ls: O minor-number do dispositivo /dev/sda é 0.
+Considering the following output of the ls command: The minor number of the device /dev/sda is 0.
+user@beowulf:~$ ls -l /dev/sd*
+brw-rw---- 1 root disk 8, 0 nov 25 12:20 /dev/sda
+brw-rw---- 1 root disk 8, 1 nov 25 12:20 /dev/sda1
+brw-rw---- 1 root disk 8, 2 dic 31 01:25 /dev/sda2
+brw-rw---- 1 root disk 8, 16 nov 25 12:20 /dev/sdb
+brw-rw---- 1 root disk 8, 17 nov 25 12:20 /dev/sdb1
+E- Un controlador DMA configurado en modo ráfaga tiene menor prioridad de acceso al bus que otro
+configurado en modo robo de ciclos: _F___
+- F El registro de datos de un controlador de dispositivo permite enviar comandos para indicar al dispositivo
+qu ́e operaci ́on debe realizar.
+- F El manejador de interrupciones es la capa del software de Entrada/Salida que chequea si un determinado
+bloque est ́a en la cach ́e de bloques.
+- F Un controlador DMA configurado en modo bus transparente (Transparent bus DMA) tiene mayor prio-
+ridad de acceso al bus que si usase modo por robo de ciclos (Cycle-stealing DMA).
+- V Los major numbers de los dispositivos de disco /dev/sda y /dev/sda1 son id ́enticos.
+- F Determinar qu ́e bloque de disco contiene un cierto offset de un fichero se realiza en la capa del subsistema
+de E/S denominada device driver 
